@@ -1,0 +1,13 @@
+.nav-link:hover {
+    border-top: 2px solid white !important; 
+}
+
+.active {
+    font-weight: 500;
+
+    border-top: 2px solid white !important; 
+}
+
+.card {
+    max-width: 43rem;
+} 

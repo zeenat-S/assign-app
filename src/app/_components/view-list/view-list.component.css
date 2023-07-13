@@ -1,0 +1,37 @@
+.nav-link:hover {
+    border-top: 2px solid white !important; 
+}
+
+.active {
+    font-weight: 500;
+
+    border-top: 2px solid white !important; 
+}
+
+.grid { 
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
+
+.grid-child { 
+    border-bottom: 1px solid black;
+}
+
+.printbtn {
+    background-color: white !important; 
+    border: none;
+}
+
+@media print {
+    #printButton {
+        display: none
+    }
+}
+
+.scroll-to-top {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    margin: 15px;
+    opacity: 0.5;
+}

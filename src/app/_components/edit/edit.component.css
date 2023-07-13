@@ -1,0 +1,22 @@
+.nav-link:hover {
+    border-top: 2px solid white !important; 
+}
+
+.active {
+    font-weight: 500;
+
+    border-top: 2px solid white !important; 
+}
+
+.card {
+    width: 43rem;
+} 
+
+.grid-child { 
+    border-bottom: 1px solid black;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}

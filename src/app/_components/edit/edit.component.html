@@ -1,0 +1,133 @@
+<header class="px-3 text-bg-primary d-flex justify-content-center" id="printButton">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-center" id="printButton">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" id="printButton">
+                <li><a routerLink="/home" class="nav-link px-2 mx-2 text-white">Home</a></li>
+                <li><a routerLink="/view-students" class="nav-link px-2 mx-2 text-white active">View Lists</a></li>
+                <li><a routerLink="/student-form" class="nav-link px-2 mx-2 text-white">Student Form</a></li>
+                <li><a routerLink="/home" class="nav-link px-2 mx-2 text-white">About</a></li>
+            </ul>
+            <a (click)="logout()" class="nav-link px-2 mx-2 text-white">LogOut</a>
+        </div>
+    </div>
+</header>
+
+<div class="container d-flex justify-content-center ">
+    <div class="card m-5 ">
+        <div class="card-header border-bottom d-flex justify-content-between">
+            <h4 class="card-header-title p-2">Edit Student Details</h4>
+            <button class="btn btn-primary" routerLink="/view-students">Done</button>
+        </div>
+        <div class="card-body p-4">
+            <div class="row g-3 p-4">
+                <div class="col-md-6">
+                    <strong>Student Name:</strong> {{student.name}}
+                </div>
+                <div class="col">
+                    <a (click)="handleName()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                      </svg></a>
+                </div>
+                <div class="col" *ngIf="studentName">
+                    <input type="text" class="form-control" [(ngModel)]="name">
+                </div>
+                <div class="col" *ngIf="studentName">
+                    <a class="btn btn-primary mb-0" style="color: white;" (click)="saveName()">Save</a>
+                </div>
+            </div>    
+            <div class="row g-3 p-4">
+                <div class="col-md-6">
+                    <strong>Father Name:</strong> {{student.fatherName}}
+                </div>
+                <div class="col">
+                    <a (click)="handlefname()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                      </svg></a>
+                </div>
+                <div class="col" *ngIf="fNameInput">
+                    <input type="text" class="form-control" [(ngModel)]="fname">
+                </div>
+                <div class="col" *ngIf="fNameInput">
+                    <a class="btn btn-primary mb-0" style="color: white;" (click)="saveFname()">Save</a>
+                </div>
+            </div>    
+            <div class="row g-3 p-4">
+                <div class="col-md-6">
+                    <strong>Mother Name:</strong> {{student.motherName}}
+                </div>
+                <div class="col">
+                    <a (click)="handlemname()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                      </svg></a>
+                </div>
+                <div class="col" *ngIf="mNameInput">
+                    <input type="text" class="form-control" [(ngModel)]="mname">
+                </div>
+                <div class="col" *ngIf="mNameInput">
+                    <a class="btn btn-primary mb-0" style="color: white;" (click)="saveMname()">Save</a>
+                </div>
+            </div>  
+            <div class="row g-3 p-4">
+                <div class="col-md-6">
+                    <strong>Student Age:</strong> {{student.age}}
+                </div>
+                <div class="col">
+                    <a (click)="handleAge()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                      </svg></a>
+                </div>
+                <div class="col" *ngIf="ageInput">
+                    <input type="text" class="form-control" [(ngModel)]="age">
+                </div>
+                <div class="col" *ngIf="ageInput">
+                    <a class="btn btn-primary mb-0" style="color: white;" (click)="saveAge()">Save</a>
+                </div>
+            </div>  
+            <div class="row g-3 p-4">
+                <div class="col-md-6">
+                    <strong>Home Address:</strong> {{student.address}}
+                </div>
+                <div class="col">
+                    <a (click)="handleAddress()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                      </svg></a>
+                </div>
+                <div class="col" *ngIf="addressinput">
+                    <input type="text" class="form-control" [(ngModel)]="address">
+                </div>
+                <div class="col" *ngIf="addressinput">
+                    <a class="btn btn-primary mb-0" style="color: white;" (click)="saveAddress()">Save</a>
+                </div>
+            </div>  
+            <div class="row g-3 p-4">
+                <div class="col-md-6">
+                    <strong>Registration Date</strong> {{student.registrationDate}}
+                </div>
+                <div class="col">
+                    <a (click)="handledate()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                      </svg></a>
+                </div>
+                <div class="col" *ngIf="dateInput">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="date"
+                            [navigation]="navigation" [displayMonths]="1" ngbDatepicker
+                            #d="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                            type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                                <path
+                                    d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="col" *ngIf="dateInput">
+                    <a class="btn btn-primary mb-0" style="color: white;" (click)="savedate()">Save</a>
+                </div>
+            </div>                                   
+        </div>
+    </div>
+</div>

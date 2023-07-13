@@ -1,0 +1,28 @@
+<header class="px-3 text-bg-primary d-flex justify-content-center">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-center">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a routerLink="/home" class="nav-link px-2 mx-2 text-white active">Home</a></li>
+                <li><a routerLink="/view-students" class="nav-link px-2 mx-2 text-white">View Lists</a></li>
+                <li><a routerLink="/student-form" class="nav-link px-2 mx-2 text-white">Student Form</a></li>
+                <li><a routerLink="/home" class="nav-link px-2 mx-2 text-white">About</a></li>
+            </ul>
+            <a (click)="logout()" class="nav-link px-2 mx-2 text-white">{{message}}</a>
+        </div>
+    </div>
+</header>
+<div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Streamline student records with efficient management</h1>
+        <p class="lead">A comprehensive solution designed to simplify the management of student information. Effortlessly store, organize, and update student records, ensuring accurate and up-to-date information at your fingertips. Experience streamlined workflows and efficient record management, empowering you to focus more on supporting your students and enhancing their educational journey.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold" routerLink="/view-students">View Students</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4" routerLink="/student-form">Add Students</button>
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="https://image.freepik.com/free-vector/e-learning-makes-it-easy-student-learn_4968-681.jpg" alt="" width="720">
+      </div>
+    </div>
+  </div>

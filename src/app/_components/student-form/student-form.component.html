@@ -1,0 +1,73 @@
+<header class="px-3 text-bg-primary d-flex justify-content-center">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-center">
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a routerLink="/home" class="nav-link px-2 mx-2 text-white ">Home</a></li>
+                <li><a routerLink="/view-students" class="nav-link px-2 mx-2 text-white">View Lists</a></li>
+                <li><a routerLink="/student-form" class="nav-link px-2 mx-2 text-white active">Student Form</a></li>
+                <li><a routerLink="/home" class="nav-link px-2 mx-2 text-white">About</a></li>
+            </ul>
+            <a (click)="logout()" class="nav-link px-2 mx-2 text-white">LogOut</a>
+        </div>
+    </div>
+</header>
+<div class="container d-flex justify-content-center ">
+    <div class="card m-5 ">
+        <div class="card-header border-bottom">
+            <h4 class="card-header-title p-2">Student Details</h4>
+        </div>
+        <div class="card-body p-5">
+            <form class="row g-3" [formGroup]="form">
+                <div class="col-md-6">
+                    <label class="form-label">Student Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter student's full name"
+                        formControlName="name">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Student Age<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" placeholder="Enter student's age" formControlName="age">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Father's Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter Father's full name"
+                        formControlName="fname">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Mother's Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control flatpickr flatpickr-input"
+                        placeholder="Enter Mother's full name" formControlName="mname">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Student Address<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter student's Address"
+                        formControlName="address">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Date of Registeration<span class="text-danger">*</span></label>
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="regDate"
+                            [navigation]="navigation" [startDate]="form.value.regDate" [displayMonths]="1" ngbDatepicker
+                            #d="ngbDatepicker" />
+                        <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()"
+                            type="button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z" />
+                                <path
+                                    d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 text-end mt-5">
+                    <a class="btn btn-primary mb-0" (click)="save()">Save Changes</a>
+                </div>
+                <div *ngIf="showAlert">
+                    <ngb-alert [dismissible]="false">
+                        <strong>Warning!</strong> All the fields are not filled.
+                    </ngb-alert>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

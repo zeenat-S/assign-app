@@ -25,10 +25,13 @@ export class StudentFormComponent {
     regDate: new FormControl()
   })
 
-  constructor(private student: StudentService, private router: Router, private auth: AuthenticationService) { }
+  constructor(
+    private student: StudentService,
+    private router: Router,
+    private auth: AuthenticationService) { }
 
   save() {
-    if(!this.form.valid) {
+    if (!this.form.valid) {
       this.showAlert = true
       return
     }

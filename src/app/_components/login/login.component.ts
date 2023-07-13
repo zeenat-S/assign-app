@@ -15,7 +15,9 @@ export class LoginComponent {
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
   })
 
-  constructor(private auth: AuthenticationService, private router: Router){}
+  constructor(
+    private auth: AuthenticationService,
+    private router: Router) { }
 
   login() {
     this.auth.login(String(this.form.value.email), String(this.form.value.password))

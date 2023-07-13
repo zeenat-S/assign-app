@@ -16,7 +16,11 @@ export class EditComponent implements OnInit {
   id!: number
   public student!: Student
 
-  constructor(private route: ActivatedRoute, private auth: AuthenticationService, private firestore: AngularFirestore, private studentService: StudentService) {
+  constructor(
+    private route: ActivatedRoute,
+    private auth: AuthenticationService,
+    private firestore: AngularFirestore,
+    private studentService: StudentService) {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
     })
@@ -75,27 +79,32 @@ export class EditComponent implements OnInit {
   }
 
   saveName() {
-    this.studentService.update({ name: this.name },this.id)
+    this.studentService.update({ name: this.name }, this.id)
     this.studentName = !this.studentName
   }
+
   saveFname() {
-    this.studentService.update({ fatherName: this.fname },this.id)
+    this.studentService.update({ fatherName: this.fname }, this.id)
     this.fNameInput = !this.fNameInput
   }
+
   saveMname() {
-    this.studentService.update({ motherName: this.mname },this.id)
+    this.studentService.update({ motherName: this.mname }, this.id)
     this.mNameInput = !this.mNameInput
   }
+
   saveAge() {
-    this.studentService.update({ age: this.age },this.id)
+    this.studentService.update({ age: this.age }, this.id)
     this.ageInput = !this.ageInput
   }
+
   saveAddress() {
-    this.studentService.update({ address: this.address },this.id)
+    this.studentService.update({ address: this.address }, this.id)
     this.addressinput = !this.addressinput
   }
+
   savedate() {
-    this.studentService.update({registrationDate: this.getFormattedDate(this.date)},this.id)
+    this.studentService.update({ registrationDate: this.getFormattedDate(this.date) }, this.id)
     this.dateInput = !this.dateInput
   }
 

@@ -8,12 +8,12 @@ import { LoginComponent } from './_components/login/login.component';
 import { authGuard } from './_guard/auth.guard';
 
 const routes: Routes = [
-  {path: "", redirectTo: "home", pathMatch: 'full'},
-  {path: "home", component: HomeComponent}, 
-  {path: "view-students", component: ViewListComponent, canActivate: [authGuard]},
-  {path: "student-form", component: StudentFormComponent, canActivate: [authGuard]},
-  {path: "edit/:id", component: EditComponent, canActivate: [authGuard]},
-  {path: "login", component: LoginComponent},
+  { path: "", redirectTo: "home", pathMatch: 'full' },
+  { path: "home", component: HomeComponent },
+  { path: "view-students", component: ViewListComponent, canActivate: [authGuard] },
+  { path: "student-form", component: StudentFormComponent, canActivate: [authGuard] },
+  { path: "edit/:id", component: EditComponent, canActivate: [authGuard] },
+  { path: "login", component: LoginComponent },
 ];
 
 @NgModule({

@@ -1,15 +1,11 @@
 import { ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbTooltip } from '@ng-bootstrap/ng-bootstrap';
 import { Student } from 'src/app/_models/student';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 import { StudentService } from 'src/app/_services/student.service';
-import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-import { Observable, OperatorFunction } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-view-list',

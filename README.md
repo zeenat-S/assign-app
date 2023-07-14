@@ -15,7 +15,6 @@ This is a student management application designed to help you manage and organiz
 ## Technologies Used
 
 * Angular v16 - A powerful JavaScript framework for building responsive web applications
-* Firebase - A suite of cloud-based services including authentication and Firestore
 * Vercel - A cloud platform for application deployment and hosting
 
 

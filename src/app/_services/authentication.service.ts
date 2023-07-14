@@ -16,31 +16,17 @@ export class AuthenticationService {
   login(email: string, pass: string) {
     return this.af.signInWithEmailAndPassword(email, pass).then(
       () => {
-        console.log("success");
         this.router.navigate(["/home"]);
         this.success = true;
       }
     ).catch((error) => {
-      console.log("An error occurred.");
+        window.alert("Something went wrong. Try Again!")
     })
-  }
-
-  register(email: string, password: string) {
-    return this.af.createUserWithEmailAndPassword(email, password).then(() => {
-      console.log("sign up success")
-      this.router.navigate(['/login'])
-    })
-      .catch(
-        (error: any) => {
-          console.log("Sign Up failed: " + error);
-        }
-      );
   }
 
   logout() {
     return this.af.signOut().then(
       () => {
-        console.log("logged out")
         this.success = false
         this.router.navigate(['/login'])
       }

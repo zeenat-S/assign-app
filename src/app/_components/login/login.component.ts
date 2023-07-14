@@ -16,8 +16,7 @@ export class LoginComponent {
   })
 
   constructor(
-    private auth: AuthenticationService,
-    private router: Router) { }
+    private auth: AuthenticationService) { }
 
   login() {
     this.auth.login(String(this.form.value.email), String(this.form.value.password))

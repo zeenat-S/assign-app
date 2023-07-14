@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap'
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from 'src/app/_services/student.service';
-import { Router } from '@angular/router';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 
@@ -15,7 +14,6 @@ export class StudentFormComponent {
 
   navigation = 'select'
   showAlert = false
-
   form = new FormGroup({
     name: new FormControl('', Validators.required),
     age: new FormControl('', Validators.required),
@@ -27,12 +25,12 @@ export class StudentFormComponent {
 
   constructor(
     private student: StudentService,
-    private router: Router,
     private auth: AuthenticationService) { }
 
   save() {
     if (!this.form.valid) {
       this.showAlert = true
+
       return
     }
 
@@ -60,8 +58,10 @@ export class StudentFormComponent {
       const year = date.year.toString();
       const month = this.padZero(date.month);
       const day = this.padZero(date.day);
+
       return `${year}-${month}-${day}`;
     }
+
     return "";
   }
 

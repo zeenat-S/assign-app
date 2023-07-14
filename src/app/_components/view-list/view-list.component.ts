@@ -15,20 +15,6 @@ import { StudentService } from 'src/app/_services/student.service';
 export class ViewListComponent implements OnInit {
 
   students!: Student[]
-  auth = inject(AuthenticationService)
-
-  constructor(
-    private router: Router, 
-    private student: StudentService,
-    private scroll: ViewportScroller, 
-    private firestore: AngularFirestore) { }
-
-  ngOnInit(): void {
-    this.firestore.collection<Student>('students').valueChanges().subscribe(data => {
-      this.students = data
-    })
-  }
-
   pageYoffset = 0;
   filter = false;
   search!: string
@@ -37,6 +23,19 @@ export class ViewListComponent implements OnInit {
   nameFilter: boolean = false
   dateFilter: boolean = false
   showSearchResults = false
+
+  constructor(
+    private router: Router,
+    private student: StudentService,
+    private scroll: ViewportScroller,
+    private firestore: AngularFirestore,
+    private auth: AuthenticationService) { }
+
+  ngOnInit(): void {
+    this.firestore.collection<Student>('students').valueChanges().subscribe(data => {
+      this.students = data
+    })
+  }
 
   @HostListener('window:scroll', ['$event']) onScroll(event: any) {
     this.pageYoffset = window.scrollY;
@@ -67,9 +66,7 @@ export class ViewListComponent implements OnInit {
   }
 
   searchButton() {
-
     this.showSearchResults = true
-
     this.filteredStudents = this.students;
 
     if (this.cityFilter) {
@@ -87,29 +84,34 @@ export class ViewListComponent implements OnInit {
     if (this.cityFilter === false && this.dateFilter === false && this.nameFilter === false) {
       window.alert("No filter selected! Select a filter.")
       this.showSearchResults = false
+      
       return
     }
 
     if (this.cityFilter && this.nameFilter) {
       window.alert("Choose only one filter at a time")
       this.showSearchResults = false
+
       return
     }
 
     if (this.cityFilter && this.dateFilter) {
       window.alert("Choose only one filter at a time")
       this.showSearchResults = false
+      
       return
     }
 
     if (this.dateFilter && this.nameFilter) {
       window.alert("Choose only one filter at a time")
       this.showSearchResults = false
+      
       return
     }
 
     if (this.cityFilter && this.dateFilter && this.nameFilter) {
       this.showSearchResults = false
+      
       return
     }
   }

@@ -4,8 +4,7 @@
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a routerLink="/home" class="nav-link px-2 mx-2 text-white ">Home</a></li>
                 <li><a routerLink="/view-students" class="nav-link px-2 mx-2 text-white">View Lists</a></li>
-                <li><a routerLink="/student-form" class="nav-link px-2 mx-2 text-white active">Student Form</a></li>
-                <li><a routerLink="/home" class="nav-link px-2 mx-2 text-white">About</a></li>
+                <li><a routerLink="/student-form" class="nav-link px-2 mx-2 text-white active">Registration</a></li>
             </ul>
             <a (click)="logout()" class="nav-link px-2 mx-2 text-white">LogOut</a>
         </div>
@@ -60,7 +59,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-end mt-5">
-                    <a class="btn btn-primary mb-0" (click)="save()">Save Changes</a>
+                    <a class="btn btn-primary mb-0" (click)="save()">Save</a>
                 </div>
                 <div *ngIf="showAlert">
                     <ngb-alert [dismissible]="false">

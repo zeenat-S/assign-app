@@ -12,22 +12,35 @@ import { StudentService } from 'src/app/_services/student.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
+  
   navigation = 'select'
   id!: number
   public student!: Student
+  name!: string
+  fname!: string
+  mname!: string
+  age!: number
+  address!: string
+  date!: NgbDateStruct
+  studentName = false
+  ageInput = false
+  addressinput = false
+  mNameInput = false
+  fNameInput = false
+  dateInput = false
 
   constructor(
     private route: ActivatedRoute,
     private auth: AuthenticationService,
     private firestore: AngularFirestore,
-    private studentService: StudentService) {
+    private studentService: StudentService) { }
+
+  ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
     })
     this.getStudent()
   }
-
-  ngOnInit(): void { }
 
   getStudent() {
     this.firestore.collection<Student>('students').doc(String(this.id)).valueChanges().subscribe((data) => {
@@ -36,19 +49,6 @@ export class EditComponent implements OnInit {
     })
   }
 
-  name!: string
-  fname!: string
-  mname!: string
-  age!: number
-  address!: string
-  date!: NgbDateStruct
-
-  studentName = false
-  ageInput = false
-  addressinput = false
-  mNameInput = false
-  fNameInput = false
-  dateInput = false
 
   logout() {
     this.auth.logout()
@@ -113,8 +113,10 @@ export class EditComponent implements OnInit {
       const year = date.year.toString();
       const month = this.padZero(date.month);
       const day = this.padZero(date.day);
+
       return `${year}-${month}-${day}`;
     }
+
     return "";
   }
 
